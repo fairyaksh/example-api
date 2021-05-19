@@ -90,3 +90,25 @@ def create(person):
       406, 
       "Person with last name {lname} already exists".format(lname = lname)
     )
+
+def update(lname, person):
+  """
+  This function updates an existing person in the people structure
+
+  :param lname: last name of person to update in the people structure
+  :param person: person to update
+  :return: updated person structure
+  """
+  # Does this person exist in people?
+  if lname in PEOPLE:
+    PEOPLE[lname]["fname"] = person.get("fname")
+    PEOPLE[lname]["timestamp"] = get_timestamp()
+
+    return PEOPLE[lname]
+  
+  # Otherwise, nope, that's an error
+  else:
+    abort(
+      404, "Person with last name {lname} not found".format(lname = lname)
+    )
+
