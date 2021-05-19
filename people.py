@@ -1,4 +1,9 @@
-# Import datetime module
+"""
+This is the people module and supports all the ReST actions for the
+PEOPLE collection
+"""
+
+# Import datetime module - SYSTEM moule
 from datetime import datetime
 
 # Function returning a string of current time
@@ -24,11 +29,11 @@ PEOPLE = {
   }
 }
 
-# Create a handler for our read (GET) people
-def read():
+# A handler for our readAll (GET) people
+def read_all():
   """
   This function responds to a request for /api/people with the complete lists of people
-  :return:        sorted list of people
+  :return:        json string of list of people
   """
 
   # Create the list of people from our data
