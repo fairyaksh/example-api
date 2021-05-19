@@ -83,3 +83,12 @@
      background-color: #fbb;
      visibility: hidden;
  }
+
+ .info {
+     text-align: center;
+ }
+
+ .code {
+     background-color: lightgray;
+     border-radius: 2px;
+ }
