@@ -65,3 +65,28 @@ paths:
         responses:
           201:
             description: Successfully created person in list
+  
+  /people/{lname}:
+    get:
+      operationId: people.read_one
+      tags:
+        - People
+      summary: Read one person from the people list
+      description: Read one person from the people list
+      parameters:
+        - name: lname
+          in: path
+          description: Last name of the person to get from the list
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read person from people list operation
+          schema:
+            properties:
+              fname:
+                type: string
+              lname:
+                type: string
+              timestring:
+                type: string
