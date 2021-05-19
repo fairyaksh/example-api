@@ -62,9 +62,9 @@ paths:
               lname:
                 type: string
                 description: Last name of person to create
-        responses:
-          201:
-            description: Successfully created person in list
+      responses:
+        201:
+          description: Successfully created person in list
   
   /people/{lname}:
     get:
@@ -91,7 +91,7 @@ paths:
               timestring:
                 type: string
     put:
-      operationID: people.update
+      operationId: people.update
       tags:
         - People
       summary: Update a person in the people list
