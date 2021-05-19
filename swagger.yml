@@ -14,11 +14,21 @@ basePath: "/api"
 paths:
   /people:
     get:
-      operationId: "people.read"
+      operationId: "people.read_all"
       tags:
         - "People"
-      summary: "The people data structure supported by the server application"
+      summary: "Read the entire list of people"
       description: "Read the list of people"
+      parameters:
+        - name: length # Numerical length of the people data
+          in: query
+          type: integer
+          description: Number of people to get from people
+          required: false
+        - name: offset # ???
+          in: query
+          type: integer
+          description: Offset from beginning of list where to start gathering people
       responses:
         200:
           description: "Successful read people list operation"
