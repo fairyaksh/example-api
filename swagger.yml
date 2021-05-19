@@ -54,7 +54,7 @@ paths:
           description: Person to create
           required: True
           schema:
-            type: object
+            type: object #why only object here and put method
             properties:
               fname:
                 type: string
@@ -114,3 +114,17 @@ paths:
       responses:
         200:
           description: Successfully updated person in people list
+    delete:
+      operationId: people.delete
+      tags:
+        - People
+      summary: Delete a person from the people list
+      description: Delete a person
+      parameters:
+        - name: lname
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a person from people list

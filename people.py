@@ -47,8 +47,8 @@ def read_one(lname):
   This function responds to a request for /api/people/{lname}
   with one matching person from people
 
-  :param lname:   last name of person to find
-  :return:        person matching last name
+  :param lname:     last name of person to find
+  :return:          person matching last name
   """
   # Does this person exist in people?
   if lname in PEOPLE:
@@ -57,7 +57,7 @@ def read_one(lname):
   # Otherwise, nope, not found
   else:
     abort(
-      404, "Person with last name {lname} not found".format(lname=lname)
+      404, "Person with last name {lname} not found".format(lname = lname)
     )
   
   return person
@@ -67,8 +67,8 @@ def create(person):
   This function creates a new person in the people structure
   based on the passed in person data
 
-  :param person:    person to create in people structure
-  :return:          201 on success, 406 on person exists
+  :param person:      person to create in people structure
+  :return:            201 on success, 406 on person exists
   """
   lname = person.get("lname", None)
   fname = person.get("fname", None)
@@ -95,9 +95,9 @@ def update(lname, person):
   """
   This function updates an existing person in the people structure
 
-  :param lname: last name of person to update in the people structure
-  :param person: person to update
-  :return: updated person structure
+  :param lname:       last name of person to update in the people structure
+  :param person:      person to update
+  :return:            updated person structure
   """
   # Does this person exist in people?
   if lname in PEOPLE:
@@ -112,3 +112,23 @@ def update(lname, person):
       404, "Person with last name {lname} not found".format(lname = lname)
     )
 
+def delete(lname):
+  """
+  This function deletes a person from the people structure
+
+  :paran lname:   last name of person to delete
+  :return:        200 on successful delete, 404 if not found
+  """
+  
+  # Does this person to delete exist?
+  if lname in PEOPLE:
+    del PEOPLE[lname]
+    return make_response(
+      "{lname} successfully deleted".format(lname = lname), 200
+    )
+
+  # Otherwise, nope, person to delete was not found
+  else:
+    abort(
+      404, "Person with last name {lname} not found".format(lname = lname)
+    )
